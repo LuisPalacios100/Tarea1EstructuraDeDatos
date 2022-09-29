@@ -1,0 +1,67 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package arreglos;
+
+import java.util.Random;
+
+/**
+ *
+ * @author Luis Palacios
+ */
+public class NewClass {
+    
+    public static void main(String[] args){
+    
+        int[][] matriz = new int[3][3];
+        Random rnd = new Random();
+    
+        for(int f = 0 ; f < 3 ; f++){
+            for (int c = 0; c < 3; c++){
+                matriz[f][c] = rnd.nextInt(10);
+            }
+        }
+        
+        for(int f = 0 ; f < 3 ; f++){
+            for (int c = 0; c < 3; c++){
+                System.out.print(" " +matriz[f][c]);
+            }
+            System.out.println("");
+        }
+        
+        //Sumando diagonal de Izquierda a derecha, arriba a abajo
+        
+        int sum_diag_1 = 0;
+        
+        for(int f = 0 ; f < 3 ; f++){
+            for (int c = 0; c < 3; c++){
+                if (f == c){
+                    sum_diag_1 += matriz[f][c];
+                }
+            }
+        }
+        
+        System.out.println("Valor de la primera diagonal (\\): " + sum_diag_1);
+        
+        //Sumando diagonal de Izquierda a derecha, abajo a arriba
+        
+        int sum_diag_2 = 0;
+        
+        for(int f = 0 ; f < 3 ; f++){
+            for (int c = 0; c < 3; c++){
+                if (f + c == 2){
+                    sum_diag_2 += matriz[f][c];
+                }
+            }
+        }
+        
+        System.out.println("Valor de la segunda diagonal (/): " + sum_diag_2);
+        
+        //Sumando ambas diagonales
+        
+        System.out.println("Valor de ambas diagonales suamadas (X): " + (sum_diag_1 + sum_diag_2));
+        
+    }
+}
